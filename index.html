@@ -21,7 +21,7 @@
                             200: '#eaddd7',
                             300: '#e0cec7',
                             400: '#d2bab0',
-                            500: '#A67C6D', // Color principal (Marrón/Oro rosa apagado)
+                            500: '#A67C6D', 
                             600: '#8a6356',
                             700: '#6d4b40',
                             800: '#4e342b',
@@ -41,7 +41,6 @@
         .section-content.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* Imagen del Banner Principal */
         .hero-bg {
             background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=2069&auto=format&fit=crop');
             background-size: cover;
@@ -51,26 +50,23 @@
 </head>
 <body class="bg-salon-50 text-salon-900 font-sans antialiased flex flex-col min-h-screen">
 
-    <!-- Navbar -->
+    <!-- Navegación -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="navigate('home')">
                     <h1 class="font-serif text-2xl font-bold tracking-wider text-salon-900 uppercase">Andrada <span class="text-salon-500">Salón</span></h1>
                 </div>
 
-                <!-- Menú Desktop -->
                 <nav class="hidden md:flex space-x-8 items-center">
-                    <button onclick="navigate('home')" class="nav-link text-salon-800 hover:text-salon-500 transition font-medium">Inicio</button>
-                    <button onclick="navigate('services')" class="nav-link text-salon-800 hover:text-salon-500 transition font-medium">Servicios</button>
-                    <button onclick="navigate('contact')" class="nav-link text-salon-800 hover:text-salon-500 transition font-medium">Contacto</button>
+                    <button onclick="navigate('home')" class="text-salon-800 hover:text-salon-500 transition font-medium">Inicio</button>
+                    <button onclick="navigate('services')" class="text-salon-800 hover:text-salon-500 transition font-medium">Servicios</button>
+                    <button onclick="navigate('contact')" class="text-salon-800 hover:text-salon-500 transition font-medium">Contacto</button>
                     <a href="https://drive.google.com" target="_blank" class="bg-salon-500 text-white px-5 py-2 rounded-full hover:bg-salon-600 transition shadow-md font-medium flex items-center gap-2">
                         <i class="far fa-calendar-alt"></i> Reservar Online
                     </a>
                 </nav>
 
-                <!-- Botón Menú Móvil -->
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-salon-800 hover:text-salon-500 focus:outline-none">
                         <i class="fas fa-bars text-2xl"></i>
@@ -79,23 +75,20 @@
             </div>
         </div>
 
-        <!-- Menú Móvil -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
-                <button onclick="navigate('home'); toggleMobileMenu();" class="block px-3 py-2 text-base font-medium text-salon-800 hover:text-salon-500 hover:bg-salon-50 rounded-md text-left">Inicio</button>
-                <button onclick="navigate('services'); toggleMobileMenu();" class="block px-3 py-2 text-base font-medium text-salon-800 hover:text-salon-500 hover:bg-salon-50 rounded-md text-left">Servicios</button>
-                <button onclick="navigate('contact'); toggleMobileMenu();" class="block px-3 py-2 text-base font-medium text-salon-800 hover:text-salon-500 hover:bg-salon-50 rounded-md text-left">Contacto</button>
-                <a href="https://drive.google.com" target="_blank" class="block px-3 py-2 text-base font-medium text-salon-500 font-bold hover:bg-salon-50 rounded-md">Reservar Online</a>
+                <button onclick="navigate('home'); toggleMobileMenu();" class="block px-3 py-2 text-base font-medium text-salon-800 hover:text-salon-500 rounded-md text-left">Inicio</button>
+                <button onclick="navigate('services'); toggleMobileMenu();" class="block px-3 py-2 text-base font-medium text-salon-800 hover:text-salon-500 rounded-md text-left">Servicios</button>
+                <button onclick="navigate('contact'); toggleMobileMenu();" class="block px-3 py-2 text-base font-medium text-salon-800 hover:text-salon-500 rounded-md text-left">Contacto</button>
+                <a href="https://drive.google.com" target="_blank" class="block px-3 py-2 text-base font-medium text-salon-500 font-bold">Reservar Online</a>
             </div>
         </div>
     </header>
 
-    <!-- ÁREAS DE CONTENIDO PRINCIPAL -->
     <main class="flex-grow">
         
-        <!-- SECCIÓN DE INICIO -->
+        <!-- INICIO -->
         <section id="home" class="section-content active">
-            <!-- Hero -->
             <div class="hero-bg h-[600px] flex items-center justify-center text-center px-4">
                 <div class="max-w-3xl">
                     <h2 class="text-4xl md:text-6xl font-serif text-white mb-6">Tu estilo, nuestra pasión</h2>
@@ -107,7 +100,6 @@
                 </div>
             </div>
 
-            <!-- Características -->
             <div class="py-16 bg-white">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
@@ -136,11 +128,9 @@
                 </div>
             </div>
 
-            <!-- Intro Sobre Nosotros -->
             <div class="py-16 bg-salon-100">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
                     <div class="w-full md:w-1/2">
-                        <!-- Imagen actualizada con una URL confiable que muestra el interior de un salón -->
                         <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1974&auto=format&fit=crop" alt="Interior moderno de Andrada Salón" class="rounded-lg shadow-xl object-cover h-[450px] w-full">
                     </div>
                     <div class="w-full md:w-1/2">
@@ -155,7 +145,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN DE SERVICIOS -->
+        <!-- SERVICIOS -->
         <section id="services" class="section-content py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
@@ -180,17 +170,17 @@
                             <p class="text-salon-700 text-sm mb-4">Técnicas clásicas y modernas para el hombre actual.</p>
                         </div>
                     </div>
-                    <!-- Servicio 3 -->
+                    <!-- Servicio 3 - Coloración (Imagen Actualizada) -->
                     <div class="bg-salon-50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
-                        <img src="https://images.unsplash.com/photo-1492162300535-32bd441a03eb?q=80&w=2070&auto=format&fit=crop" alt="Coloración" class="w-full h-48 object-cover">
+                        <img src="https://images.unsplash.com/photo-1620331311520-246422fd82f9?q=80&w=1974&auto=format&fit=crop" alt="Tinte y Coloración" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <h3 class="font-serif text-xl font-bold mb-2">Coloración Experta</h3>
                             <p class="text-salon-700 text-sm mb-4">Mechas, balayage y tintes con protección capilar avanzada.</p>
                         </div>
                     </div>
-                    <!-- Servicio 4 -->
+                    <!-- Servicio 4 - Tratamientos (Imagen Actualizada) -->
                     <div class="bg-salon-50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
-                        <img src="https://images.unsplash.com/photo-1527799822367-a233b47b0ee1?q=80&w=1956&auto=format&fit=crop" alt="Lavado y Masaje" class="w-full h-48 object-cover">
+                        <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=2080&auto=format&fit=crop" alt="Lavado y Masaje Capilar" class="w-full h-48 object-cover">
                         <div class="p-6">
                             <h3 class="font-serif text-xl font-bold mb-2">Tratamientos</h3>
                             <p class="text-salon-700 text-sm mb-4">Hidratación, brillo y recuperación de la salud del cabello.</p>
@@ -208,7 +198,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN DE CONTACTO -->
+        <!-- CONTACTO -->
         <section id="contact" class="section-content py-16 bg-salon-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
@@ -216,7 +206,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-white rounded-2xl shadow-sm overflow-hidden">
-                    <!-- Datos -->
                     <div class="p-8 md:p-12">
                         <div class="space-y-8">
                             <div>
@@ -230,7 +219,7 @@
                             </div>
 
                             <div>
-                                <h4 class="text-salon-500 uppercase tracking-widest text-xs font-bold mb-2">Horario de Apertura</h4>
+                                <h4 class="text-salon-500 uppercase tracking-widest text-xs font-bold mb-2">Horario</h4>
                                 <p class="text-salon-900">Abierto · Cierre a las 19:00</p>
                             </div>
 
@@ -243,11 +232,10 @@
                         </div>
 
                         <div class="mt-12">
-                            <a href="https://drive.google.com" target="_blank" class="block w-full text-center bg-salon-900 text-white py-4 rounded-lg hover:bg-black transition font-bold">RESERVAR AHORA</a>
+                            <a href="https://drive.google.com" target="_blank" class="block w-full text-center bg-salon-900 text-white py-4 rounded-lg hover:bg-black transition font-bold uppercase tracking-wider">Reservar Ahora</a>
                         </div>
                     </div>
 
-                    <!-- Mapa -->
                     <div class="min-h-[400px]">
                         <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.4239850165975!2d-0.8924031!3d41.6421946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5914edbf14d2a9%3A0xc3f1463eb4312678!2sAv.%20Francisco%20de%20Goya%2C%2015%2C%2050006%20Zaragoza!5e0!3m2!1ses!2ses!4v1700000000000" 
@@ -262,38 +250,18 @@
             </div>
         </section>
 
-        <!-- SECCIONES LEGALES -->
+        <!-- LEGAL -->
         <section id="legal" class="section-content py-16 bg-white">
             <div class="max-w-4xl mx-auto px-4">
                 <h2 class="text-3xl font-serif font-bold text-salon-900 mb-8 border-b pb-4 text-center">Aviso Legal</h2>
                 <div class="prose max-w-none text-salon-800 space-y-4">
                     <p>De acuerdo con el artículo 10 de la Ley 34/2002, de 11 de julio, le informamos que el titular de este dominio es Andrada Salón, ubicado en Av. Fco. de Goya, 15, Zaragoza. Teléfono: 976 96 29 08.</p>
-                    <p>El uso del sitio web implica la aceptación de estas condiciones.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="privacy" class="section-content py-16 bg-white">
-            <div class="max-w-4xl mx-auto px-4">
-                <h2 class="text-3xl font-serif font-bold text-salon-900 mb-8 border-b pb-4 text-center">Política de Privacidad</h2>
-                <div class="prose max-w-none text-salon-800 space-y-4">
-                    <p>Andrada Salón cumple con el RGPD. Tratamos sus datos únicamente para gestionar sus citas y prestar los servicios solicitados. No cedemos datos a terceros sin obligación legal. Puede ejercer sus derechos de acceso, rectificación o supresión contactándonos en nuestro local físico.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="cookies" class="section-content py-16 bg-white">
-            <div class="max-w-4xl mx-auto px-4">
-                <h2 class="text-3xl font-serif font-bold text-salon-900 mb-8 border-b pb-4 text-center">Política de Cookies</h2>
-                <div class="prose max-w-none text-salon-800 space-y-4">
-                    <p>Este sitio utiliza cookies técnicas necesarias para el funcionamiento y cookies de análisis (Google Maps) para mejorar la experiencia. Puede configurar su navegador para bloquearlas, aunque esto podría afectar a la funcionalidad del mapa.</p>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- FOOTER -->
     <footer class="bg-salon-900 text-salon-200 py-12 border-t-4 border-salon-500">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
             <div>
@@ -302,16 +270,15 @@
             </div>
 
             <div>
-                <h4 class="font-bold text-white mb-4 uppercase text-xs tracking-widest">Legalidad</h4>
+                <h4 class="font-bold text-white mb-4 uppercase text-xs tracking-widest">Información</h4>
                 <ul class="space-y-2 text-sm">
                     <li><button onclick="navigate('legal')" class="hover:text-salon-500 transition">Aviso Legal</button></li>
-                    <li><button onclick="navigate('privacy')" class="hover:text-salon-500 transition">Política de Privacidad</button></li>
-                    <li><button onclick="navigate('cookies')" class="hover:text-salon-500 transition">Política de Cookies</button></li>
+                    <li><button onclick="navigate('privacy')" class="hover:text-salon-500 transition">Privacidad</button></li>
                 </ul>
             </div>
 
             <div>
-                <h4 class="font-bold text-white mb-4 uppercase text-xs tracking-widest">Contacto Directo</h4>
+                <h4 class="font-bold text-white mb-4 uppercase text-xs tracking-widest">Contacto</h4>
                 <ul class="space-y-2 text-sm">
                     <li class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-salon-500"></i> Av. Fco. de Goya, 15, Zaragoza</li>
                     <li class="flex items-center gap-2"><i class="fas fa-phone text-salon-500"></i> 976 96 29 08</li>
@@ -319,21 +286,9 @@
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-salon-800 text-xs text-center">
-            <p>&copy; 2024 Andrada Salón. Espacio Inclusivo LGBTQ+. <br class="sm:hidden"> Zaragoza, España.</p>
+            <p>&copy; 2024 Andrada Salón. Espacio Inclusivo LGBTQ+.</p>
         </div>
     </footer>
-
-    <!-- BANNER COOKIES -->
-    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-6 shadow-2xl z-50 transform translate-y-full transition-transform duration-500">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-            <p class="text-sm text-salon-800 text-center md:text-left">
-                En Andrada Salón usamos cookies para asegurar que tengas la mejor experiencia en nuestra web. Si continúas navegando, entendemos que estás de acuerdo.
-            </p>
-            <div class="flex gap-4">
-                <button onclick="acceptCookies()" class="bg-salon-900 text-white px-8 py-2 rounded-full text-sm font-bold hover:bg-black transition">ACEPTAR</button>
-            </div>
-        </div>
-    </div>
 
     <script>
         function navigate(sectionId) {
@@ -343,20 +298,8 @@
             const target = document.getElementById(sectionId);
             if (target) target.classList.add('active');
 
-            history.pushState(null, null, `#${sectionId}`);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            const hash = window.location.hash.replace('#', '');
-            if (hash && document.getElementById(hash)) navigate(hash);
-
-            if (!localStorage.getItem('cookiesAccepted')) {
-                setTimeout(() => {
-                    document.getElementById('cookie-banner').classList.remove('translate-y-full');
-                }, 1500);
-            }
-        });
 
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
@@ -366,11 +309,6 @@
         }
 
         btn.addEventListener('click', toggleMobileMenu);
-
-        function acceptCookies() {
-            localStorage.setItem('cookiesAccepted', 'true');
-            document.getElementById('cookie-banner').classList.add('translate-y-full');
-        }
     </script>
 </body>
 </html>
