@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrada Salón | Peluquería en Zaragoza</title>
+    <meta name="description" content="Andrada Salón, tu peluquería de confianza en Av. Fco. de Goya, 15, Zaragoza. Reserva online. Espacio amigable con la comunidad LGBTQ+.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        salon: {
+                            50: '#fdf8f6',
+                            100: '#f2e8e5',
+                            200: '#eaddd7',
+                            300: '#e0cec7',
+                            400: '#d2bab0',
+                            500: '#A67C6D', // Color principal (Marrón/Oro rosa apagado)
+                            600: '#8a6356',
+                            700: '#6d4b40',
+                            800: '#4e342b',
+                            900: '#2c1e19',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .section-content { display: none; animation: fadeIn 0.5s ease-in-out; }
+        .section-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-bg {
+            background-image: linear-gradient(rgba(44, 30, 25, 0.7), rgba(44, 30, 25, 0.7)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-salon-50 text-salon-900 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="navigate('home')">
+                    <h1 class="font-serif text-2xl font-bold tracking-wider text-salon-900 uppercase">Andrada <span class="text-salon-500">Salón</span></h1>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <button onclick="navigate('home')" class="nav-link text-salon-800 hover:text-salon-500 transition font-medium">Inicio</button>
+                    <button onclick="navigate('services')" class="nav-link text-salon-800 hover:text-salon-500 transition font-medium">Servicios</button>
+                    <button onclick="navigate('contact')" class="nav-link text-salon-800 hover:text-salon-500 transition font-medium">Contacto</button>
+                    <a href="https://drive.google.com" target="_blank" class="bg-salon-500 text-white px-5 py-2 rounded-full hover:bg-salon-600 transition shadow-md font-medium flex items-center gap-2">
+                        <i class="far fa-calendar-alt"></i> Reservar Online
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-salon-800 hover:text-salon-500 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <button onclick="navigate('home'); toggleMobileMenu();" class="block px-3 py-2 text-base font-medium text-salon-800 hover:text-salon-500 hover:bg-salon-50 rounded-md text-left">Inicio</button>
+                <button onclick="navigate('services'); toggleMobileMenu();" class="block px-3 py-2 text-base font-medium text-salon-800 hover:text-salon-500 hover:bg-salon-50 rounded-md text-left">Servicios</button>
+                <button onclick="navigate('contact'); toggleMobileMenu();" class="block px-3 py-2 text-base font-medium text-salon-800 hover:text-salon-500 hover:bg-salon-50 rounded-md text-left">Contacto</button>
+                <a href="https://drive.google.com" target="_blank" class="block px-3 py-2 text-base font-medium text-salon-500 font-bold hover:bg-salon-50 rounded-md">Reservar Online</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT AREAS -->
+    <main class="flex-grow">
+        
+        <!-- HOME SECTION -->
+        <section id="home" class="section-content active">
+            <!-- Hero -->
+            <div class="hero-bg h-[600px] flex items-center justify-center text-center px-4">
+                <div class="max-w-3xl">
+                    <h2 class="text-4xl md:text-6xl font-serif text-white mb-6">Descubre tu mejor versión</h2>
+                    <p class="text-lg md:text-xl text-gray-200 mb-8 font-light">Especialistas en cuidado capilar y estilismo en el corazón de Zaragoza. Un espacio seguro, acogedor y profesional.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="https://drive.google.com" target="_blank" class="bg-salon-500 text-white px-8 py-3 rounded-full hover:bg-salon-600 transition text-lg shadow-lg font-medium">Reserva tu cita</a>
+                        <button onclick="navigate('services')" class="bg-white text-salon-900 px-8 py-3 rounded-full hover:bg-gray-100 transition text-lg shadow-lg font-medium">Ver servicios</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                        <div class="p-6 rounded-2xl bg-salon-50 border border-salon-100">
+                            <div class="text-yellow-400 text-3xl mb-3 flex justify-center gap-1">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <h3 class="text-xl font-serif font-bold text-salon-900 mb-2">Valoración 5.0</h3>
+                            <p class="text-salon-700">Basado en 26 reseñas de Google. La satisfacción de nuestros clientes es nuestra mejor garantía.</p>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-salon-50 border border-salon-100">
+                            <div class="text-salon-500 text-3xl mb-3">
+                                <i class="fas fa-rainbow"></i>
+                            </div>
+                            <h3 class="text-xl font-serif font-bold text-salon-900 mb-2">Espacio Inclusivo</h3>
+                            <p class="text-salon-700">Orgullosamente amigables con la comunidad LGBTQ+. Todos son bienvenidos en nuestro salón.</p>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-salon-50 border border-salon-100">
+                            <div class="text-salon-500 text-3xl mb-3">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3 class="text-xl font-serif font-bold text-salon-900 mb-2">Horario Ininterrumpido</h3>
+                            <p class="text-salon-700">Abierto hasta las 19:00. Adaptándonos a tu ritmo de vida para que siempre luzcas perfecto/a.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Intro -->
+            <div class="py-16 bg-salon-100">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1521590832167-7bfc17484d20?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Interior de la peluquería" class="rounded-lg shadow-xl object-cover h-[400px] w-full">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h2 class="text-3xl font-serif font-bold text-salon-900 mb-6">Bienvenido/a a Andrada Salón</h2>
+                        <p class="text-salon-800 mb-4 leading-relaxed">Ubicados en pleno centro de Zaragoza (Av. Fco. de Goya, 15), somos más que una peluquería: somos un espacio dedicado a tu bienestar y tu imagen.</p>
+                        <p class="text-salon-800 mb-6 leading-relaxed">Trabajamos con las mejores marcas y técnicas de vanguardia para ofrecerte resultados excepcionales que respeten la salud de tu cabello. Déjate asesorar por nuestro equipo de expertos.</p>
+                        <button onclick="navigate('contact')" class="text-salon-500 font-bold hover:text-salon-700 transition flex items-center gap-2">
+                            Encuéntranos en Google Maps <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="services" class="section-content py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-serif font-bold text-salon-900 mb-4">Nuestros Servicios</h2>
+                    <p class="text-salon-700 max-w-2xl mx-auto">Tratamientos personalizados y estilismo adaptado a tus facciones y estilo de vida. Puedes consultar la lista completa y tarifas en nuestro documento oficial.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Service 1 -->
+                    <div class="bg-salon-50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
+                        <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Corte y Peinado" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-serif text-xl font-bold mb-2">Corte & Peinado</h3>
+                            <p class="text-salon-700 text-sm mb-4">Desde cortes clásicos hasta las últimas tendencias. Incluye asesoramiento y acabado.</p>
+                        </div>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="bg-salon-50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
+                        <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Coloración" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-serif text-xl font-bold mb-2">Coloración & Mechas</h3>
+                            <p class="text-salon-700 text-sm mb-4">Balayage, babylights, tintes completos... Cuidando siempre la fibra capilar.</p>
+                        </div>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="bg-salon-50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
+                        <img src="https://images.unsplash.com/photo-1595642527925-4d41cb781653?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Tratamientos Capilares" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-serif text-xl font-bold mb-2">Tratamientos Capilares</h3>
+                            <p class="text-salon-700 text-sm mb-4">Hidratación profunda, queratina, botox capilar y terapias reparadoras.</p>
+                        </div>
+                    </div>
+                    <!-- Service 4 -->
+                    <div class="bg-salon-50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
+                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Eventos Especiales" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-serif text-xl font-bold mb-2">Bodas & Eventos</h3>
+                            <p class="text-salon-700 text-sm mb-4">Recogidos y peinados especiales para que luzcas radiante en tus momentos importantes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16 text-center bg-salon-100 p-8 rounded-2xl">
+                    <h3 class="text-2xl font-serif font-bold mb-4">Catálogo Completo y Reservas</h3>
+                    <p class="text-salon-800 mb-6">Para ver nuestra lista de precios detallada o reservar tu cita, accede a nuestro portal oficial.</p>
+                    <a href="https://drive.google.com" target="_blank" class="inline-flex items-center gap-2 bg-salon-500 text-white px-8 py-3 rounded-full hover:bg-salon-600 transition font-medium shadow-md">
+                        <i class="fas fa-external-link-alt"></i> Ver Catálogo / Reservar Online
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="section-content py-16 bg-salon-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-serif font-bold text-salon-900 mb-4">Visítanos</h2>
+                    <p class="text-salon-700 max-w-2xl mx-auto">Estamos deseando conocerte. Pide tu cita o pásate a saludarnos.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-white rounded-2xl shadow-sm overflow-hidden border border-salon-100">
+                    <!-- Contact Info -->
+                    <div class="p-8 md:p-12">
+                        <h3 class="text-2xl font-serif font-bold mb-8 border-b pb-4">Información de Contacto</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-salon-100 p-3 rounded-full text-salon-500">
+                                    <i class="fas fa-map-marker-alt text-xl w-6 text-center"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-salon-900">Dirección</h4>
+                                    <p class="text-salon-700">Av. Fco. de Goya, 15<br>50006 Zaragoza<br><span class="text-sm text-gray-500">Google Plus Code: J4V6+3Q Zaragoza</span></p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="bg-salon-100 p-3 rounded-full text-salon-500">
+                                    <i class="fas fa-phone-alt text-xl w-6 text-center"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-salon-900">Teléfono</h4>
+                                    <a href="tel:976962908" class="text-salon-700 hover:text-salon-500 transition">976 96 29 08</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="bg-salon-100 p-3 rounded-full text-salon-500">
+                                    <i class="fas fa-clock text-xl w-6 text-center"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-salon-900">Horario</h4>
+                                    <p class="text-salon-700">Abierto hasta las 19:00 hrs.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="bg-salon-100 p-3 rounded-full text-salon-500">
+                                    <i class="fab fa-instagram text-xl w-6 text-center"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-salon-900">Redes Sociales</h4>
+                                    <a href="https://instagram.com" target="_blank" class="text-salon-700 hover:text-salon-500 transition">Síguenos en Instagram</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-8 border-t flex flex-wrap gap-4">
+                            <a href="https://drive.google.com" target="_blank" class="flex-1 text-center bg-salon-900 text-white px-6 py-3 rounded-lg hover:bg-black transition font-medium">Reservar</a>
+                            <a href="tel:976962908" class="flex-1 text-center border-2 border-salon-900 text-salon-900 px-6 py-3 rounded-lg hover:bg-salon-50 transition font-medium">Llamar Ahora</a>
+                        </div>
+                    </div>
+
+                    <!-- Map Image Placeholder (Since real maps require API keys, using styled placeholder) -->
+                    <div class="bg-gray-200 relative min-h-[400px]">
+                        <!-- Embed Google Maps -->
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.4239850165975!2d-0.8924031!3d41.6421946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5914edbf14d2a9%3A0xc3f1463eb4312678!2sAv.%20Francisco%20de%20Goya%2C%2015%2C%2050006%20Zaragoza!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0; position:absolute; top:0; left:0; width:100%; height:100%;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AVISO LEGAL -->
+        <section id="legal" class="section-content py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-serif font-bold text-salon-900 mb-8 border-b pb-4">Aviso Legal</h2>
+                <div class="prose max-w-none text-salon-800 space-y-4">
+                    <p><strong>1. DATOS IDENTIFICATIVOS</strong></p>
+                    <p>En cumplimiento con el deber de información recogido en artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico, a continuación se reflejan los siguientes datos: el titular de dominio web es Andrada Salón (en adelante, la Peluquería), con domicilio a estos efectos en Av. Fco. de Goya, 15, 50006 Zaragoza. Número de teléfono de contacto: 976 96 29 08.</p>
+
+                    <p><strong>2. USUARIOS</strong></p>
+                    <p>El acceso y/o uso de este portal atribuye la condición de USUARIO, que acepta, desde dicho acceso y/o uso, las Condiciones Generales de Uso aquí reflejadas. Las citadas Condiciones serán de aplicación independientemente de las Condiciones Generales de Contratación que en su caso resulten de obligado cumplimiento.</p>
+
+                    <p><strong>3. USO DEL PORTAL</strong></p>
+                    <p>La web proporciona el acceso a multitud de informaciones, servicios, programas o datos (en adelante, "los contenidos") en Internet pertenecientes a Andrada Salón o a sus licenciantes a los que el USUARIO pueda tener acceso. El USUARIO asume la responsabilidad del uso del portal.</p>
+
+                    <p><strong>4. PROPIEDAD INTELECTUAL E INDUSTRIAL</strong></p>
+                    <p>Andrada Salón por sí o como cesionaria, es titular de todos los derechos de propiedad intelectual e industrial de su página web, así como de los elementos contenidos en la misma (a título enunciativo, imágenes, sonido, audio, vídeo, software o textos; marcas o logotipos, combinaciones de colores, estructura y diseño, etc.). Todos los derechos reservados.</p>
+
+                    <p><strong>5. EXCLUSIÓN DE GARANTÍAS Y RESPONSABILIDAD</strong></p>
+                    <p>Andrada Salón no se hace responsable, en ningún caso, de los daños y perjuicios de cualquier naturaleza que pudieran ocasionar, a título enunciativo: errores u omisiones en los contenidos, falta de disponibilidad del portal o la transmisión de virus o programas maliciosos o lesivos en los contenidos, a pesar de haber adoptado todas las medidas tecnológicas necesarias para evitarlo.</p>
+
+                    <p><strong>6. MODIFICACIONES</strong></p>
+                    <p>Andrada Salón se reserva el derecho de efectuar sin previo aviso las modificaciones que considere oportunas en su portal, pudiendo cambiar, suprimir o añadir tanto los contenidos y servicios que se presten a través de la misma como la forma en la que éstos aparezcan presentados o localizados en su portal.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- POLÍTICA DE PRIVACIDAD -->
+        <section id="privacy" class="section-content py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-serif font-bold text-salon-900 mb-8 border-b pb-4">Política de Privacidad</h2>
+                <div class="prose max-w-none text-salon-800 space-y-4">
+                    <p>En Andrada Salón, nos tomamos muy en serio la privacidad de nuestros clientes y usuarios de la web. Esta Política de Privacidad describe cómo recopilamos, utilizamos y protegemos su información personal, de acuerdo con el Reglamento General de Protección de Datos (RGPD).</p>
+
+                    <p><strong>1. RESPONSABLE DEL TRATAMIENTO</strong></p>
+                    <p>Identidad: Andrada Salón<br>Dirección postal: Av. Fco. de Goya, 15, 50006 Zaragoza<br>Teléfono: 976 96 29 08</p>
+
+                    <p><strong>2. FINALIDAD DEL TRATAMIENTO DE DATOS</strong></p>
+                    <p>Tratamos la información que nos facilita con el fin de prestarles el servicio solicitado de peluquería y estética, realizar la facturación del mismo, así como la gestión de reservas de citas a través de las plataformas de terceros (Google Drive/Forms u otros). Los datos proporcionados se conservarán mientras se mantenga la relación comercial o durante los años necesarios para cumplir con las obligaciones legales.</p>
+
+                    <p><strong>3. LEGITIMACIÓN</strong></p>
+                    <p>La base legal para el tratamiento de sus datos es la ejecución del contrato de prestación de servicios y/o el consentimiento expreso del interesado al contactarnos o solicitar una reserva.</p>
+
+                    <p><strong>4. DESTINATARIOS</strong></p>
+                    <p>Los datos no se cederán a terceros salvo en los casos en que exista una obligación legal o para la correcta prestación del servicio (por ejemplo, pasarelas de pago o sistemas de gestión de reservas externos como Google Workspace, que actúan como encargados de tratamiento).</p>
+
+                    <p><strong>5. DERECHOS ARCO</strong></p>
+                    <p>Usted tiene derecho a obtener confirmación sobre si en Andrada Salón estamos tratando sus datos personales, por tanto tiene derecho a acceder a sus datos personales, rectificar los datos inexactos o solicitar su supresión cuando los datos ya no sean necesarios. Para ejercer estos derechos, puede dirigirse por escrito o presencialmente a nuestra dirección postal indicada arriba, adjuntando una copia de su DNI.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- POLÍTICA DE COOKIES -->
+        <section id="cookies" class="section-content py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-serif font-bold text-salon-900 mb-8 border-b pb-4">Política de Cookies</h2>
+                <div class="prose max-w-none text-salon-800 space-y-4">
+                    <p><strong>1. ¿QUÉ SON LAS COOKIES?</strong></p>
+                    <p>Una cookie es un fichero que se descarga en su ordenador al acceder a determinadas páginas web. Las cookies permiten a una página web, entre otras cosas, almacenar y recuperar información sobre los hábitos de navegación de un usuario o de su equipo y, dependiendo de la información que contengan y de la forma en que utilice su equipo, pueden utilizarse para reconocer al usuario.</p>
+
+                    <p><strong>2. ¿QUÉ TIPOS DE COOKIES UTILIZA ESTA PÁGINA WEB?</strong></p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li><strong>Cookies técnicas:</strong> Son aquellas que permiten al usuario la navegación a través de una página web, plataforma o aplicación y la utilización de las diferentes opciones o servicios que en ella existan.</li>
+                        <li><strong>Cookies de análisis:</strong> Son aquellas que bien tratadas por nosotros o por terceros (ej. Google Analytics), nos permiten cuantificar el número de usuarios y así realizar la medición y análisis estadístico de la utilización que hacen los usuarios del servicio ofertado.</li>
+                    </ul>
+
+                    <p><strong>3. REVOCACIÓN Y ELIMINACIÓN DE COOKIES</strong></p>
+                    <p>Puedes permitir, bloquear o eliminar las cookies instaladas en tu equipo mediante la configuración de las opciones del navegador instalado en tu ordenador. A continuación te indicamos los enlaces de los principales navegadores y dispositivos para que dispongas de toda la información para consultar cómo gestionar las cookies en tu navegador:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Google Chrome</li>
+                        <li>Mozilla Firefox</li>
+                        <li>Safari</li>
+                        <li>Microsoft Edge</li>
+                    </ul>
+                    <p>Ten en cuenta que si bloqueas el uso de cookies en tu navegador es posible que algunos servicios o funcionalidades de la página web no estén disponibles.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-salon-900 text-salon-200 py-12 border-t-4 border-salon-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Footer Info -->
+            <div>
+                <h3 class="font-serif text-2xl font-bold text-white mb-4 uppercase tracking-widest">Andrada <span class="text-salon-500">Salón</span></h3>
+                <p class="mb-4 text-sm text-salon-300">Tu belleza natural, nuestra pasión. Resaltamos tu esencia en un entorno profesional e inclusivo.</p>
+                <div class="flex space-x-4">
+                    <a href="https://instagram.com" target="_blank" class="text-salon-300 hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-salon-300 hover:text-white transition"><i class="fab fa-facebook-f text-xl"></i></a>
+                </div>
+            </div>
+
+            <!-- Footer Links -->
+            <div>
+                <h4 class="font-bold text-white mb-4">Enlaces Legales</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><button onclick="navigate('legal')" class="hover:text-white transition">Aviso Legal</button></li>
+                    <li><button onclick="navigate('privacy')" class="hover:text-white transition">Política de Privacidad</button></li>
+                    <li><button onclick="navigate('cookies')" class="hover:text-white transition">Política de Cookies</button></li>
+                </ul>
+            </div>
+
+            <!-- Footer Contact -->
+            <div>
+                <h4 class="font-bold text-white mb-4">Contacto</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><i class="fas fa-map-marker-alt w-5 text-salon-500"></i> Av. Fco. de Goya, 15, Zaragoza</li>
+                    <li><i class="fas fa-phone w-5 text-salon-500"></i> 976 96 29 08</li>
+                    <li><i class="fas fa-clock w-5 text-salon-500"></i> Cierre: 19:00</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-salon-800 text-sm text-center">
+            <p>&copy; 2023 Andrada Salón. Todos los derechos reservados. <span class="inline-flex items-center gap-1"><i class="fas fa-heart text-salon-500 text-xs"></i> Espacio Amigable LGBTQ+</span></p>
+        </div>
+    </footer>
+
+    <!-- COOKIE BANNER -->
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 shadow-2xl z-50 transform translate-y-full transition-transform duration-500">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-salon-800 text-center sm:text-left">
+                Utilizamos cookies propias y de terceros para mejorar nuestros servicios y mostrarle publicidad relacionada con sus preferencias mediante el análisis de sus hábitos de navegación. Si continúa navegando, consideramos que acepta su uso. Puede obtener más información en nuestra <button onclick="navigate('cookies'); document.getElementById('cookie-banner').classList.add('translate-y-full');" class="text-salon-500 underline font-bold">Política de Cookies</button>.
+            </p>
+            <div class="flex gap-2 flex-shrink-0">
+                <button onclick="acceptCookies()" class="bg-salon-900 text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-black transition">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR NAVIGATION AND COOKIES -->
+    <script>
+        // Navigation logic for SPA
+        function navigate(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(sec => {
+                sec.classList.remove('active');
+            });
+
+            // Show target section
+            const target = document.getElementById(sectionId);
+            if (target) {
+                target.classList.add('active');
+            }
+
+            // Update URL hash without jumping
+            history.pushState(null, null, `#${sectionId}`);
+            
+            // Scroll to top smooth
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Handle initial load based on URL hash
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.replace('#', '');
+            if (hash && document.getElementById(hash)) {
+                navigate(hash);
+            }
+
+            // Show cookie banner if not accepted
+            if (!localStorage.getItem('cookiesAccepted')) {
+                setTimeout(() => {
+                    document.getElementById('cookie-banner').classList.remove('translate-y-full');
+                }, 1000);
+            }
+        });
+
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        function toggleMobileMenu() {
+            menu.classList.toggle('hidden');
+        }
+
+        btn.addEventListener('click', toggleMobileMenu);
+
+        // Cookie acceptance logic
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookie-banner').classList.add('translate-y-full');
+        }
+    </script>
+</body>
+</html>
